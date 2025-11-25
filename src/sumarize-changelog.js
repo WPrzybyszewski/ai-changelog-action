@@ -9,6 +9,7 @@ import {GoogleGenAI} from "@google/genai";
  */
 export async function generateChangelogWithAI(commits, apiKey, repoName) {
   console.log("Generating changelog with AI...");
+  console.log(commits);
   if (!commits || commits.length === 0) {
     throw new Error("No commits provided for changelog generation");
   }
