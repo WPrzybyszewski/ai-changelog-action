@@ -1,0 +1,29 @@
+name: Generate Changelog with AI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      commit_count:
+        description: 'Number of commits to analyze'
+        required: false
+        default: '10'
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run local AI changelog action
+        uses: ./
+        with:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          COMMIT_COUNT: ${{ github.event.inputs.commit_count || '10' }}
+          BRANCH: main
