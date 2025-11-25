@@ -2,6 +2,6 @@
 
 ### 25.11.2025 - 25.11.2025
 
-- Dodano konfigurację `main.yml`.
-- Utworzono początkową wersję projektu (Initial commit).
-- Wprowadzono zmiany przygotowawcze do generowania changelogu.
+- Utworzono początkową konfigurację projektu.
+- Dodano wstępne zmiany przed generowaniem changelogu.
+- Skonfigurowano proces automatycznego generowania changelogu.
