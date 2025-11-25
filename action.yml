@@ -1,0 +1,36 @@
+# action.yml
+name: AI Changelog Generator
+description: Generate CHANGELOG.md from recent commits using Gemini Flash AI
+
+# GitHub Marketplace - Branding
+branding:
+  icon: "file-text"
+  color: "blue"
+
+# Input parameters
+inputs:
+  GOOGLE_API_KEY:
+    description: "Google AI Studio API Key"
+    required: true
+  COMMIT_COUNT:
+    description: "Number of recent commits to analyze (default: 10)"
+    required: false
+    default: "10"
+  BRANCH:
+    description: "Target branch to analyze commits from and create PR to (default: main)"
+    required: false
+    default: "main"
+
+# Action steps
+runs:
+  using: "composite"
+  steps:
+    - name: Generate CHANGELOG.md and create PR
+      id: changelog
+      shell: bash
+      run: node ${GITHUB_ACTION_PATH}/dist/index.cjs
+      env:
+        GOOGLE_API_KEY: ${{ inputs.GOOGLE_API_KEY }}
+        GITHUB_TOKEN: ${{ github.token }}
+        INPUT_COMMIT_COUNT: ${{ inputs.COMMIT_COUNT }}
+        INPUT_BRANCH: ${{ inputs.BRANCH }}

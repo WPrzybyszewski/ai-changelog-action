@@ -1,0 +1,29 @@
+{
+  "name": "10x-ai-action",
+  "version": "1.0.0",
+  "description": "AI-powered changelog generator that uses GitHub SDK and Google Gemini Flash",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx rolldown -c rolldown.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/przeprogramowani/ai-action.git"
+  },
+  "keywords": [
+    "github",
+    "action",
+    "ai",
+    "changelog",
+    "gemini"
+  ],
+  "dependencies": {
+    "@actions/core": "1.11.1",
+    "@actions/github": "6.0.0",
+    "@google/genai": "0.9.0"
+  },
+  "devDependencies": {
+    "rolldown": "1.0.0-beta.8"
+  }
+}
